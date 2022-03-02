@@ -1,11 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 3000;
-const mongoUrl =
-  "mongodb+srv://evspoint:donttouch1807@evspoint.sgihu.mongodb.net/evspoint";
-
+const port = process.env.PORT || 5000;
+const mongoUrl ="mongodb+srv://evspoint:donttouch1807@evspoint.sgihu.mongodb.net/evspoint";
+ 
 const ownerToken = require("./middleware/ownerToken");
 
 const ownerRoutes = require("./routes/ownerapi");
@@ -13,7 +13,7 @@ const ownerRoutes = require("./routes/ownerapi");
 app.use(bodyParser.json());
 
 app.use(ownerRoutes);
-
+app.use(cors())
 mongoose
   .connect(mongoUrl, {})
   .then(() => {
