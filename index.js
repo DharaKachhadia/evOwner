@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 app.use(cors())
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 const mongoUrl ="mongodb+srv://evspoint:donttouch1807@evspoint.sgihu.mongodb.net/evspoint";
  
 const ownerToken = require("./middleware/ownerToken");
